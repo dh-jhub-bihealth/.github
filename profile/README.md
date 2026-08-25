@@ -1,6 +1,6 @@
 # BIH Center of Digital Health JupyterHub
 
-User management and documentation for the JupyterHub instance at [dh-jhub.bihealth.org](https://dh-jhub.bihealth.org/), hosted on the [de.NBI Cloud (https://www.denbi.de/cloud) and operated by the [Health Data Group](https://www.hidih.org/research/health-data) of the [BIH Center of Digital Health](https://www.hidih.org/).
+User management and documentation for the JupyterHub instance at [dh-jhub.bihealth.org](https://dh-jhub.bihealth.org/), hosted on the [de.NBI Cloud](https://www.denbi.de/cloud) and operated by the [Health Data Group](https://www.hidih.org/research/health-data) of the [BIH Center of Digital Health](https://www.hidih.org/).
 
 ## Requesting access
 
