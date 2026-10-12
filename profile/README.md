@@ -156,7 +156,7 @@ conda config --add envs_dirs ~/conda_envs/
 ```
 
 > [!WARNING]
-> This step is essential. By default conda installs environments to `/opt/conda`, which lives inside the server image and is **deleted every time your server stops**. Only `/home/jovyan` persists. With `envs_dirs` set to `~/conda_envs/`, your environments survive server restarts.
+> This step is essential. By default conda installs environments to `/opt/conda`, which lives inside the server image and is **deleted every time your server stops**. Only `/home/jovyan` persists. With `envs_dirs` set to `~/conda_envs/`, your environments survive server restarts. This folder will be created when you first create an environment in conda.
 
 ### 4. Verify
 
