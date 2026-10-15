@@ -6,7 +6,8 @@ This guide is for students and collaborators using the JupyterHub instance at [d
 
 Important contacts:
 - [Naveed Ishaque](naveed.ishaque@bih-charite.de) for access and scientific issues.
-- [Martin Braun](martin.braun@bih-charite.de) for cloud related questions.
+- [Max Boshof](max-jonas.boshof@charite.de) for cloud/jhub related questions.
+- [Martin Braun](martin.braun@bih-charite.de) for cloud/jhub related questions.
 
 ## Contents
 
@@ -28,22 +29,9 @@ Important contacts:
 If you have access and just need the essential first-time setup, run this in a terminal on your server:
 
 ```bash
-# Switch to bash (the default terminal shell is sh)
-/bin/bash
-
 # Initialise conda for your shell
 conda init
-
-# Make bash the default terminal shell
-echo 'c.ServerApp.terminado_settings = { "shell_command": ["/bin/bash"] }' >> ~/.jupyter/jupyter_server_config.py
-echo 'c.NotebookApp.terminado_settings = { "shell_command": ["/bin/bash"] }' >> ~/.jupyter/jupyter_notebook_config.py
-
-# Store conda environments in your home directory so they persist
-conda config --add envs_dirs ~/conda_envs/
 ```
-
-> [!WARNING]
-> If you skip the `envs_dirs` step, conda environments are written to `/opt/conda`, which is deleted when your server stops. **Your environments will disappear.** See [First-time setup](#first-time-setup-required) for details.
 
 ## Getting access
 
@@ -133,32 +121,13 @@ Open a terminal from the launcher for command-line work.
 
 Complete these steps once, in a terminal, before doing any real work.
 
-### 1. Start bash and initialise conda
+### 1. Initialise conda
 
 ```bash
-/bin/bash
 conda init
 ```
 
-### 2. Make bash the default terminal shell
-
-```bash
-echo 'c.ServerApp.terminado_settings = { "shell_command": ["/bin/bash"] }' >> ~/.jupyter/jupyter_server_config.py
-echo 'c.NotebookApp.terminado_settings = { "shell_command": ["/bin/bash"] }' >> ~/.jupyter/jupyter_notebook_config.py
-```
-
-New terminals will now open in bash automatically.
-
-### 3. Set a persistent conda environment directory
-
-```bash
-conda config --add envs_dirs ~/conda_envs/
-```
-
-> [!WARNING]
-> This step is essential. By default conda installs environments to `/opt/conda`, which lives inside the server image and is **deleted every time your server stops**. Only `/home/jovyan` persists. With `envs_dirs` set to `~/conda_envs/`, your environments survive server restarts. This folder will be created when you first create an environment in conda.
-
-### 4. Verify
+### 2. Verify
 
 Create a test environment and check where it was installed:
 
@@ -169,7 +138,7 @@ conda env list
 
 The environment path must begin with `/home/jovyan/conda_envs/`. If it begins with `/opt/conda`, the `envs_dirs` setting was not applied; repeat step 3 and recreate the environment.
 
-### 5. Do not work in base
+### 3. Do not work in base
 
 Always create and activate a named environment for your work:
 
